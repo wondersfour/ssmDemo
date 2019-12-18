@@ -39,7 +39,6 @@ public class CustomRealm extends AuthorizingRealm{
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
 		logger.info("=============>用户授权认证<==========");
-		System.out.println("==============>>用户授权认证<<==============");
 		String username = principalCollection.getPrimaryPrincipal().toString();
 		System.out.println("===>授权>"+username);
 		SimpleAuthorizationInfo simpleAuthorizationInfo  = new SimpleAuthorizationInfo();
@@ -59,8 +58,8 @@ public class CustomRealm extends AuthorizingRealm{
 		
 		String userName = authenticationToken.getPrincipal().toString();
         User user = shiroUserService.queryUserByName(userName);
-        System.out.println(userName+"===============>>thisisUserNamme<<=================="+user);
-		if (user!=null) {
+        //这里获取的userName=null(user.getUserName()) mybatis 驼峰命名没有起效果导致的
+        if (user!=null) {
             AuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(user.getUserName(), user.getPassword(), getName());
             return authenticationInfo;
         }

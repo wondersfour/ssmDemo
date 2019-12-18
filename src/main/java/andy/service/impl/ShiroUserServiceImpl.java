@@ -19,7 +19,7 @@ public class ShiroUserServiceImpl implements ShiroUserService {
 	@Override
 	public User queryUserByName(String userName) {
 		// TODO Auto-generated method stub
-		return userMapper.queryUserByName();
+		return userMapper.queryUserByName(userName);
 	}
 
 	@Override

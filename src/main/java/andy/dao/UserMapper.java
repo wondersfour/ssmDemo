@@ -17,7 +17,7 @@ public interface UserMapper {
 
     int updateByPrimaryKey(User record);
     
-    public User queryUserByName();
+    public User queryUserByName(String userName);
     
     public Set<String> queryRolesByName(String userName);
 }

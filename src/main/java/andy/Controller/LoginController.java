@@ -43,14 +43,12 @@ public class LoginController {
 		
 		try {
 			subject.login(usernamePasswordToken);
-			logger.info("========>>登录成功<<======");
 			// 输出日志
 			logger.info("测试：{}", "输出成功日志");
 			return "/success";
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
-			logger.info("======>登录失败<=====");
 			// 输出日志
 			logger.info("测试：{}", "输出失败日志");
 			return "/login";
